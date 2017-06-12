@@ -21,8 +21,16 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <navbar></navbar>
-    <sidenav></sidenav>
+    <div layout="column" layout-fill>
+      <navbar></navbar>
+
+      <div layout-fill layout="row">
+        <sidenav></sidenav>
+        <div flex>
+          <chart></chart>
+        </div>
+      </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -35,6 +43,9 @@
        ga('send', 'pageview');
     </script>
 
+    <script src="http://code.highcharts.com/stock/highstock.src.js"></script>
+
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -42,6 +53,7 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -52,6 +64,8 @@
         <script src="scripts/services/sidenav.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
         <script src="scripts/directives/navbar.js"></script>
+        <script src="scripts/directives/chart.js"></script>
+        <script src="scripts/controllers/chart.js"></script>
         <!-- endbuild -->
 </body>
 </html>

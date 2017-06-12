@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('testFrontApp', ['ngMaterial'])
+  .module('testFrontApp', ['ngMaterial', 'highcharts-ng'])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('blue-grey')
       .dark();
