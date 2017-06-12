@@ -1,4 +1,4 @@
-// Generated on 2017-06-05 using generator-angular 0.16.0
+// Generated on 2017-06-11 using generator-angular 0.16.0
 'use strict';
 
 var gulp = require('gulp');
@@ -16,7 +16,7 @@ var yeoman = {
 
 var paths = {
   scripts: [yeoman.app + '/scripts/**/*.js'],
-  styles: [yeoman.app + '/styles/**/*.css'],
+  styles: [yeoman.app + '/styles/**/*.scss'],
   test: ['test/spec/**/*.js'],
   testRequire: [
     yeoman.app + '/bower_components/angular/angular.js',
@@ -44,6 +44,10 @@ var lintScripts = lazypipe()
   .pipe($.jshint.reporter, 'jshint-stylish');
 
 var styles = lazypipe()
+  .pipe($.sass, {
+    outputStyle: 'expanded',
+    precision: 10
+  })
   .pipe($.autoprefixer, 'last 1 version')
   .pipe(gulp.dest, '.tmp/styles');
 
@@ -110,6 +114,7 @@ gulp.task('watch', function () {
 
 gulp.task('serve', function (cb) {
   runSequence('clean:tmp',
+    'bower',
     ['lint:scripts'],
     ['start:client'],
     'watch', cb);
@@ -139,7 +144,7 @@ gulp.task('bower', function () {
       directory: yeoman.app + '/bower_components',
       ignorePath: '..'
     }))
-  .pipe(gulp.dest(yeoman.app + '/views'));
+    .pipe(gulp.dest(yeoman.app));
 });
 
 ///////////
@@ -194,7 +199,7 @@ gulp.task('copy:fonts', function () {
 });
 
 gulp.task('build', ['clean:dist'], function () {
-  runSequence(['images', 'copy:extras', 'copy:fonts', 'client:build']);
+  runSequence(['bower', 'images', 'copy:extras', 'copy:fonts', 'client:build']);
 });
 
 gulp.task('default', ['build']);

@@ -2,11 +2,15 @@
 
 /**
  * @ngdoc overview
- * @name frontDemoApp
+ * @name testFrontApp
  * @description
- * # frontDemoApp
+ * # testFrontApp
  *
  * Main module of the application.
  */
 angular
-  .module('frontDemoApp', []);
+  .module('testFrontApp', ['ngMaterial'])
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('blue-grey')
+      .dark();
+  });

@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: SidenavCtrl', function () {
 
   // load the controller's module
   beforeEach(module('testFrontApp'));
 
-  var MainCtrl,
+  var SidenavCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    SidenavCtrl = $controller('SidenavCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+    expect(SidenavCtrl.awesomeThings.length).toBe(3);
   });
 });

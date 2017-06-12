@@ -1,0 +1,58 @@
+<div layout="column" layout-fill flex="grow">
+  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+    </md-toolbar>
+
+    <div layout="row">
+      <md-content layout="column" layout-padding style="width: 60px; background-color: rgb(12,97,182);" md-whiteframe="4">
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="images/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="images/icons/more_vert.svg"></md-icon>
+        </md-button>
+      </md-content>
+      <md-content layout="column" flex layout-padding>
+        <form>
+          <md-input-container>
+            <label for="underlying">Underlying</label>
+            <input id="underlying" type="text" ng-model="underlying" md-autofocus>
+          </md-input-container>
+
+          <md-input-container>
+            <label for="scenario">Scenario</label>
+            <input id="scenario" type="text" ng-model="scenario">
+          </md-input-container>
+
+          <md-input-container>
+            <label for="spot">Spot</label>
+            <input id="spot" type="text" ng-model="spot">
+          </md-input-container>
+
+          <md-input-container>
+            <label for="barrier">Barrier</label>
+            <input id="barrier" type="text" ng-model="barrier">
+          </md-input-container>
+
+          <md-input-container>
+            <label for="beginDate">Begin Date</label>
+            <md-datepicker id="beginDate" md-hide-icons="calendar" ng-model="beginDate" md-current-view="year"></md-datepicker>
+          </md-input-container>
+
+          <md-input-container>
+            <label for="endDate">End Date</label>
+            <md-datepicker id="endDate" md-hide-icons="calendar" ng-model="endDate" md-current-view="year"></md-datepicker>
+          </md-input-container>
+
+        </form>
+
+        <md-button ng-click="sidenav.toggle()">
+          Open Left Menu
+        </md-button>
+      </md-content>
+    </div>
+  </md-sidenav>
+
+</div>
